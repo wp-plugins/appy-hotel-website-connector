@@ -16,24 +16,21 @@ Create a hotel website seamlessly integrated with [Appyhotel.com]’s hotel app 
 
 == Description ==
 
-Appy Hotel Website Connector
-----
+###Appy Hotel Website Connector
 
 [Appy Hotel] is a comprehensive digital marketing platform that enables hotels to build and manage their own apps and websites. 
 
 [youtube http://www.youtube.com/watch?v=WeGlBDzAnbM]
 
-Build a Hotel Website in Minutes
-----
+###Build a Hotel Website in Minutes
+
 This plugin enables the publication of data entered via Appy Hotel's proprietary [backend] directly to any Wordpress based website. The plugin and accompanying themes enable hotels and website developers to deploy, with just a few clicks, fully featured hotel websites. 
 
-Manage Your Hotel's Website and Apps From a Single Dashboard
-----
+###Manage Your Hotel's Website and Apps From a Single Dashboard
 Websites generated this way are managed using the Appy Hotel dashboard and are therefore always in synch with apps generated via the platform. 
 Appy Hotel = 1 management dashboard, all the screens you need
 
-How it works
-----
+###How it works
 Installing and activating the plugin and theme, and entering a valid Appy Hotel ID and API key in the settings page will immediately pull, structure and publish all the content entered for that hotel onto the Wordpress installation. 
 
 Use [Appy Hotel's provided responsive themes], or style your own to create a stunning Hotel website, fully integrated with the hotel's mobile apps and managed via the same dashboard.
@@ -43,8 +40,7 @@ To see the plugin in action enter the following demo details:
 * Appy Hotel ID: 1111111 
 To get a live API Key for your hotel you must have a paying subscription with Appy Hotel. Contact support@appyhotel.com for more details. 
 
-Features
-----
+###Features
 * **Full integration with Appy Hotel** - *Menu categories*, *pages* and *items* seamlessly pulled from your Appy Hotel dashboard. Texts, images and videos entered via Appy Hotel are recreated as stunning mobile responsive website pages on your Wordpress installation.    
 
 * **Short codes for maximum flexibility** - Any content entered on your Appy Hotel dashboard is available for display on any page, post or widget via shortcodes
