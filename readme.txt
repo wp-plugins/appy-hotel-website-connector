@@ -17,7 +17,7 @@ Create a hotel website seamlessly integrated with [Appyhotel.com]’s hotel app 
 == Description ==
 
 Appy Hotel Website Connector
-=====
+----
 
 [Appy Hotel] is a comprehensive digital marketing platform that enables hotels to build and manage their own apps and websites. 
 
