@@ -124,22 +124,21 @@ Yes the Appy Hotel platform has a comprehensive solution for hotel groups.
 
 == Screenshots ==
 
-1. Homepage of a Hotel website generated using Appy Hotel Website Connector and responsive theme as seen on a desktop. screenshot-1.jpg
+1. Homepage of a Hotel website generated using Appy Hotel Website Connector and responsive theme as seen on a desktop.
 
-1. Homepage of a Hotel website generated using Appy Hotel Website Connector and responsive theme as seen on a mobile. screenshot-2.jpg
+1. Homepage of a Hotel website generated using Appy Hotel Website Connector and responsive theme as seen on a mobile.
 
-1. Social media feeds, location on Google maps, and hotel promotions are pulled from the Appy Hotel dashboard and displayed on the website. screenshot-3.jpg
+1. Social media feeds, location on Google maps, and hotel promotions are pulled from the Appy Hotel dashboard and displayed on the website.
 
-1. Content pages and images uploaded via the Appy Hotel backend are automatically ported over to Wordpress and rendered as stunning web pages. screenshot-4.jpg
+1. Content pages and images uploaded via the Appy Hotel backend are automatically ported over to Wordpress and rendered as stunning web pages.
 
-1. Items and promotions are ported over from Appy Hotel to Wordpress as well. screenshot-5.jpg
+1. Items and promotions are ported over from Appy Hotel to Wordpress as well.
 
-1. All images uploaded via the Appy Hotel dashboard are ported over to the hotel's website to create a gorgeous gallery. screenshot-6.jpg
+1. All images uploaded via the Appy Hotel dashboard are ported over to the hotel's website to create a gorgeous gallery.
 
-1. Really easy integration on the Wordpress side. Simply enter your Hotel ID and API key, choose which options you want to enable, and you're all set! screenshot-8.jpg
+1. Really easy integration on the Wordpress side. Simply enter your Hotel ID and API key, choose which options you want to enable, and you're all set!
 
 1. Really easy integration on the Wordpress side. Simply enter your Hotel ID and API key, choose which options you want to enable, and you're all set! 
-screenshot-9.jpg
 
 **Create an amazing responsive website for any Hotel in minutes!**
 
