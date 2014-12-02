@@ -2,7 +2,8 @@
 
 Contributors: Appy Corporation Ltd. 
 Donate link:
-Tags: hotels, hospitality, hotel website, resort website, hospitality website,  hotel marketing, 
+Tags: hotel, resort, casino, cruise ship, B&B, hostel, hotels, resorts, booking, bookings, reservation, reservations, 
+hospitality, hotel website, resort website, hospitality website, hotel marketing, resort marketing, mobile responsive,  
 Author URI: http://appyhotel.com
 Requires at least: 3.0.1
 Tested up to: 4.0
