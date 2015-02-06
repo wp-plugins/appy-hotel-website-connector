@@ -1,0 +1,9 @@
+== Changelog ==
+ 
+= 2.0 =
+* Do not wipe out all the pages when refreshing the content.
+* Bug fixes.
+* Code improvments
+ 
+= 1.0 =
+* Initial Release.

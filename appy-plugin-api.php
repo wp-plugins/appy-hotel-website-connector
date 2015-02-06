@@ -351,12 +351,18 @@ function appy_get_menus($language_code = null) {
 
 
 function appy_get_menu_by_name($title=null, $language_code=null) {
+
+  if($language_code == null) {
+    return null;
+  }
+
   $res = appy_get_app()->details->$language_code->menus ;
   foreach($res as $menu) {
     if(strtolower($menu->title) == strtolower($title) && $menu->language_code==$language_code) {
       return $menu;
     }
   }
+
   return null;
 }
 
@@ -666,7 +672,8 @@ function appy_get_welcome($app = null, $lang = null) {
 
 function appy_translate ($word, $lang) {
   $dictionary = appy_load_translations();
-  if ( !array_key_exists($lang, $dictionary) ) {
+
+  if ( $dictionary[$lang][$word] == '' ) {
     $lang = 'en' ;
   }
   return $dictionary[$lang][$word] ;

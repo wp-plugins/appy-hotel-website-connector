@@ -16,7 +16,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo APPY_ASSET_DIR ;?>img/hotel-website-theme-wordpress-dolphin-450x333.jpg" alt="Appy Hotel Orca Theme">
+							<img src="http://www.appyhotel.com/wp-content/uploads/2014/10/hotel-website-theme-wordpress-dolphin-450x333.jpg" alt="Appy Hotel Orca Theme">
 							<div class="caption">
 								<h3 class="text-muted">Dolphin</h3>
 								<p>Hotel website WordPress theme</p>
@@ -31,7 +31,7 @@
 
 					<div class="col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo APPY_ASSET_DIR ;?>img/hotel-website-theme-wordpress-orca-450x333.jpg" alt="Appy Hotel Orca Theme">
+							<img src="http://www.appyhotel.com/wp-content/uploads/2014/10/hotel-website-theme-wordpress-orca-450x333.jpg" alt="Appy Hotel Orca Theme">
 							<div class="caption">
 								<h3 class="text-muted">Orca</h3>
 								<p>Hotel website WordPress theme</p>

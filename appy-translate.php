@@ -47,6 +47,7 @@ function appy_load_translations() {
   $dictionary['fr']['our_pride'] = "Notre Fierté";
   $dictionary['fr']['blog'] = "Blog";
   $dictionary['fr']['menu'] = "Menu";
+  $dictionary['fr']['about'] = "À propos";
 
   $dictionary['th']['welcome'] = "ยินดีต้อนรับ";
   $dictionary['th']['gallery'] = "แกลอรี่";
@@ -68,6 +69,7 @@ function appy_load_translations() {
   $dictionary['th']['our_pride'] = "ความภาคภูมิใจของเรา";
   $dictionary['th']['blog'] = "บล็อก";
   $dictionary['th']['menu'] = "เมนู";
+  $dictionary['th']['about'] = "เกี่ยวกับเรา";
 
   $dictionary['de']['welcome'] = "Willkommen";
   $dictionary['de']['gallery'] = "Galerie";

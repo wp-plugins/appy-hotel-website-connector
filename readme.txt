@@ -151,6 +151,12 @@ Yes the Appy Hotel platform has a comprehensive solution for hotel groups.
 ----
 
 == Changelog ==
+
+= 2.0 =
+* Do not wipe out all the pages when refreshing the content.
+* Bug fixes.
+* Code improvements.
+
 = 1.0 =
 * First release.
 

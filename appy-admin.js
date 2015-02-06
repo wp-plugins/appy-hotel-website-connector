@@ -1,5 +1,19 @@
 jQuery(document).ready(function(){
 
+	if(jQuery("#dolphin-download-button").length) {
+		jQuery("#dolphin-download-button").on('click', function(event){
+			event.preventDefault();
+			initCoolDownload('dolphin');
+		});
+	}
+	if(jQuery("#orca-download-button").length) {
+		jQuery("#orca-download-button").on('click', function(event){
+			event.preventDefault();
+			initCoolDownload('orca');
+		});
+	}
+
+
 	showLoadingFigure();
     showInstallNotification();
 	showSaveNotification();
@@ -17,11 +31,42 @@ jQuery(document).ready(function(){
 			} ;
 		    jQuery(this).switchButton(switchGlobalOpts);
     });
+    
+    
+/*    baguetteBox.run('.lb', {
+    	captions: false
+    });*/
 
     jQuery("#themeSelectionModal").modal();
     jQuery("[data-toggle=tooltip]").tooltip();
     fancyCopyPaste();
 });
+
+function initCoolDownload(userTheme) {
+	var theme = userTheme;
+	var labelID = theme + '-download-message' ;
+	var themeFile = '';
+	if (theme=="dolphin") {themeFile="http://www.appyhotel.com/wp-content/uploads/2014/10/wpappydolphin.zip";}
+	if (theme=="orca") {themeFile="http://www.appyhotel.com/wp-content/uploads/2014/10/wpappyorca.zip";}
+	var secondsBeforeDownloading = 5 ;
+	var timerInterval = setInterval(
+		function () {
+			console.log(labelID + ' / '+themeFile);
+			
+            var label = document.getElementById(labelID);
+
+            if (secondsBeforeDownloading === 0){
+                label.innerHTML = '<a href="theme-install.php?upload" target="_blank">Install your theme (guided installation)!</a>';
+                downloadFile(themeFile);
+                clearInterval(timerInterval);
+            } else {
+                label.innerHTML = 'Download will start in ' + secondsBeforeDownloading + ' seconds...';
+                secondsBeforeDownloading--;
+            }
+        }
+
+		, 1000);
+}
 
 
 function showLoadingFigure() {

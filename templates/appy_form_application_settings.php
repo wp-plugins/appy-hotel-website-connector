@@ -16,6 +16,8 @@
     } else {
       $refreshed = true;
     }
+  } else if(isset($_POST['reset'])) {
+    appy_reset_wordpress();
   }
 
   if(isset($_GET['settings-updated']) && $settings['first-install']!=true  && $refreshed!=true ) {
@@ -208,6 +210,32 @@
       </div>
 
       <div class="row"><div class="col-md-12"><hr class="whch"/></div></div>
+      </form>
+
+      <form method="post">
+        <div class="row"><div class="col-md-12"></div></div>
+        
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div id="reset-form-panel" class="panel bottom-6 border-1">
+              <div class="panel-body">
+                <div style="margin-bottom:12px;">
+                  <span>Reset my Wordpress Installation</span>
+                  <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    This will delete all the pages in your current installation. (But not the posts.)
+                  </div>
+                </div>
+                <div class="loading">
+                  <input type="hidden" name="reset" id="reset" value="true" />
+                  <input id="reset-button" type="submit" value='Reset' class="btn btn-lg btn-danger text-uppercase"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row"><div class="col-md-12"><hr class="whch"/></div></div>
       </form>
       <?php } ?>
 
