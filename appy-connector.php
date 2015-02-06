@@ -6,7 +6,7 @@
 Plugin Name: AppyConnector
 Plugin URI: http://appyhotel.com
 Description:  <p>Thanks for installing <b>Appy Hotel Website Connector</b>.</p><p> Next steps: 1) Install your <a href="http://www.appyhotel.com/appy-hotel-website-connector" target="_blank">hotel theme</a> next. 2) Head on to the <a href='admin.php?page=appy_connector_account-settings'>settings page</a> and enter your hotel ID and API key.
-Version: 1.0
+Version: 2.0
 Author: AppyHotel
 Author URI: http://appyhotel.com
 License: GPL2
@@ -88,7 +88,8 @@ if(!defined('APPY_ASSET_DIR')) define('APPY_ASSET_DIR', plugins_url( '/assets/' 
  */
 require_once(dirname(__FILE__) . '/appy-translate.php');
 require_once(dirname(__FILE__) . '/appy-plugin-api.php');
-require_once(dirname(__FILE__) . '/appy-wp-content.php');
+require_once(dirname(__FILE__) . '/generators/appy-wp-generator.php');
+require_once(dirname(__FILE__) . '/generators/appy-wp-page-generator.php');
 require_once(dirname(__FILE__) . '/appy-wp-shortcodes.php');
 
 /**
@@ -135,8 +136,6 @@ function appy_install() {
 
   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
   dbDelta( $sql ); 
-
-  appy_create_categories();
 }
 register_activation_hook( __FILE__, 'appy_install' );
 
@@ -268,17 +267,21 @@ function appy_booking_enabled() {
  *
  * @return string The error if something went wrong, null if the data was successfuly updated.
  */
-
 function appy_download_app() {
   require_once(dirname(__FILE__) . '/api-connector.php');
   $c = new AppyApiConnector();
   $res = $c->get_app();
 
-  set_permalink_structure();
-  appy_create_menus();
-  // appy_create_categories();
+  $generator = new AppyWPGenerator();
+  $generator->generate();
 
   return $res;
+}
+
+function appy_reset_wordpress() {
+  require_once(dirname(__FILE__) . '/generators/appy-wp-generator.php');
+  $g = new AppyWPGenerator();
+  $g->reset();
 }
 
 /**
@@ -388,6 +391,35 @@ function appy_connector_first_boot() {
   require_once(dirname(__FILE__) . '/templates/appy_first_boot.php');
 }
 
+/**
+ * Scheduled tasks.
+ */
+
+/**
+ * Add a new interval to Wordpress' cron.
+ * Interval 'minutes_10', run every 10 minutes.
+ *
+ * @since appy_connector (1.0.0)
+ */
+function new_interval($interval) {
+  $interval['minutes_60'] = array('interval' => 60*60, 'display' => 'Once 60 minutes');
+  return $interval;
+}
+add_filter('cron_schedules', 'new_interval');
+
+/**
+ * Schedule the refreshing of the hotel's data every 10 minutes.
+ *
+ * @since appy_connector (1.0.0)
+ */
+function appy_setup_schedule() {
+  if ( appy_config_set() && ! wp_next_scheduled( 'appy_pulling_event' ) ) {
+    wp_schedule_event( time(), 'minutes_60', 'appy_pulling_event');
+  }
+}
+add_action( 'wp', 'appy_setup_schedule' );
+add_action( 'appy_pulling_event', 'appy_download_app' );
+
 
 function add_query_vars($aVars) {
   $aVars[] = "culture"; // represents the language_code as shown in the URL
@@ -401,8 +433,13 @@ add_filter('query_vars', 'add_query_vars');
  */
 function appy_refresh_web_client() {
   error_log("appy_refresh_web_client");
-  $appy_db = appy_freshness_db();
-  appy_freshness_update($appy_db, "0");
+  require_once(ABSPATH . 'wp-config.php'); 
+  require_once(ABSPATH . 'wp-includes/wp-db.php'); 
+  require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+  appy_download_app();
+  header('Content-Type: application/json');
+  echo json_encode( array('success' => true) );
+  exit;
 }
 
 if(preg_match("/^\/appy_refresh_web_client/", $_SERVER['REQUEST_URI'])) {
@@ -412,31 +449,6 @@ if(preg_match("/^\/appy_refresh_web_client/", $_SERVER['REQUEST_URI'])) {
   }
 }
 
-function appy_freshness_check() {
-    
-    $appy_db = appy_freshness_db();
-    $sth = $appy_db->prepare('SELECT fresh FROM appyapps');
-    $sth->execute();
-    $fresh = $sth->fetchColumn();
-    
-    if(!$fresh) {
-      appy_download_app();
-      appy_freshness_update($appy_db, "1");
-    }
-}
-add_action('wp_loaded','appy_freshness_check');
-
-function appy_freshness_db(){
-  $dsn = 'sqlite:' . dirname(__FILE__) . '/appy.sqlite' ;
-  $db = new PDO($dsn);
-  return $db;
-}
-
-function appy_freshness_update(&$db, $val) {
-      $update = "UPDATE appyapps SET fresh=$val" ;
-      $db->exec($update);
-      $db=null;
-}
 
 function appy_connector_admin_notice() {
   $settings = get_option('appy_options');

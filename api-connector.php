@@ -58,14 +58,10 @@ class AppyApiConnector
     // Log a warning if the API is, or will be, deprecated.
     $this->check_deprecated();
 
-    if($status == '200') 
-    {
+    if($status == '200')
       $this->appy_save();
 
-      return $this->errors[$status];
-    }
-
-    
+    return $this->errors[$status];
   }
 
   /**
